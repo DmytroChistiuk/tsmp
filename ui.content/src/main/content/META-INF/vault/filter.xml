@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/tsmp" mode="merge"/>
+    <filter root="/content/tsmp" mode="merge"/>
+    <filter root="/content/dam/tsmp" mode="merge">
+        <exclude pattern="/content/dam/tsmp(/.*)?"/>
+        <include pattern="/content/dam/tsmp/jcr:content(/.*)?"/>
+    </filter>
+    <filter root="/content/dam/tsmp/asset.jpg" mode="merge"/>
+    <filter root="/content/experience-fragments/tsmp" mode="merge"/>
+</workspaceFilter>

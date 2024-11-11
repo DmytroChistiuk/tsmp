@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/tsmp/clientlibs"/>
+    <filter root="/apps/tsmp/components"/>
+    <filter root="/apps/tsmp/i18n"/>
+</workspaceFilter>

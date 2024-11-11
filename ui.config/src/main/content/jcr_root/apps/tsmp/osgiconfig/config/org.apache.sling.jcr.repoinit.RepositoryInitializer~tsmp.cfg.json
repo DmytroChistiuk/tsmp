@@ -1,0 +1,7 @@
+{
+    "scripts": [
+        "create path (sling:OrderedFolder) /content/dam/tsmp",
+        "create path (nt:unstructured) /content/dam/tsmp/jcr:content",
+        "set properties on /content/dam/tsmp/jcr:content\n  set cq:conf{String} to /conf/tsmp\n  set jcr:title{String} to \"TSMP\"\nend"
+    ]
+}
