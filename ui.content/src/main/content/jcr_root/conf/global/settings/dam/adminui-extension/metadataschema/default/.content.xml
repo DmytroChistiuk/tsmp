@@ -478,7 +478,6 @@
                                     sling:resourceType="dam/gui/components/admin/schemafield"
                                     fieldLabel="Owner Email"
                                     name="./jcr:content/metadata/owner"
-                                    required="true"
                                     resourceType="granite/ui/components/coral/foundation/form/textfield">
                                     <granite:data
                                         jcr:primaryType="nt:unstructured"

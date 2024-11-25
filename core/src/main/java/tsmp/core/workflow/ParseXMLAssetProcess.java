@@ -9,10 +9,10 @@ import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
-@Component(service = WorkflowProcess.class, property = {
-        "process.label=" + "Create Tariff Plan Items Process"
+@Component(service = WorkflowProcess.class, immediate = true, property = {
+        "process.label=" + "Parse XML Asset"
 })
-public class CreateTariffPlanItemsProcess implements WorkflowProcess {
+public class ParseXMLAssetProcess implements WorkflowProcess {
 
     @Reference
     private ResourceResolverFactory resourceResolverFactory;
