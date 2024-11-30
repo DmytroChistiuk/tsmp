@@ -43,9 +43,8 @@
                         </goals>
                         <configuration>
                             <bnd><![CDATA[
-Import-Package: javax.annotation;version=0.0.0,
-                com.poiji.*;version=4.0.0,
-                *
+Import-Package: javax.annotation;version=0.0.0,*
+-conditionalpackage: com.poiji.*
                                 ]]></bnd>
                         </configuration>
                     </execution>
@@ -83,13 +82,17 @@ Import-Package: javax.annotation;version=0.0.0,
     </build>
 
     <dependencies>
-        <!-- Excel -->
+        <!-- Utils dependencies -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.6</version>
+        </dependency>
         <dependency>
             <groupId>com.github.ozlerhakan</groupId>
             <artifactId>poiji</artifactId>
             <version>4.0.0</version>
         </dependency>
-        <!-- Json-->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
