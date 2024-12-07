@@ -3,23 +3,64 @@
           jcr:primaryType="nt:unstructured"
           jcr:title="Offers Slider"
           sling:resourceType="cq/gui/components/authoring/dialog">
-    <content
-            jcr:primaryType="nt:unstructured"
-            sling:resourceType="granite/ui/components/foundation/container">
-        <layout
+<content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+    <items jcr:primaryType="nt:unstructured">
+        <tabs
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
-        <items jcr:primaryType="nt:unstructured">
-            <offersDropdown
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
-                    fieldLabel="Choose offer"
-                    name="./offersDropdown"
-                    data-granite-class="offers-dropdown">
-                <datasource
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+            <items jcr:primaryType="nt:unstructured">
+                <properties
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="/apps/offersDropdown"/>
-            </offersDropdown>
-        </items>
-    </content>
+                        jcr:title="Properties"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                    <items jcr:primaryType="nt:unstructured">
+                        <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                            <items jcr:primaryType="nt:unstructured">
+                                <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <offerType jcr:primaryType="nt:unstructured"
+                                                   sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                   fieldLabel="Offer Type"
+                                                   name="./offerType"
+                                                   emptyText="Select a offer type">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <tariffPlan
+                                                        jcr:primaryType="nt:unstructured"
+                                                        value="tariffPlan"
+                                                        text="Tariff Plan" />
+                                                <hardwareProduct
+                                                        jcr:primaryType="nt:unstructured"
+                                                        value="hardwareProduct"
+                                                        text="Hardware product" />
+                                            </items>
+                                        </offerType>
+                                        <offers jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                fieldLabel="Offers">
+                                            <offer jcr:primaryType="nt:unstructured"
+                                                   sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                   class="offer-dropdown"
+                                                   fieldLabel="Offer"
+                                                   name="./offer">
+                                            </offer>
+                                        </offers>
+                                    </items>
+                                </column>
+                            </items>
+                        </columns>
+                    </items>
+                </properties>
+            </items>
+        </tabs>
+    </items>
+</content>
 </jcr:root>

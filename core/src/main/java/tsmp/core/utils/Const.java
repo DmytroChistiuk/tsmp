@@ -12,5 +12,6 @@ public class Const {
     public static final String TARIFF_PLAN_DATASOURCE_PATH = "/etc/reportData/tariffPlans";
 
     public static final String JSON_DATA_PROPERTY = "jsonData";
+    public static final String OFFER_TYPE = "offerType";
 
 }
