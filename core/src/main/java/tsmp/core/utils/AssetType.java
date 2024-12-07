@@ -7,8 +7,8 @@ import java.util.Arrays;
 import java.util.Optional;
 
 public enum AssetType {
-    NETWORK_HARDWARE("xml-asset-type:hardware-product", NetworkHardwareProductModel.class, "/somepath"),
-    TARIFF_PLAN("xml-asset-type:tariff-plan", TariffPlanModel.class, "/somepath2");
+    NETWORK_HARDWARE(Const.HARDWARE_PRODUCT_TAG, NetworkHardwareProductModel.class, Const.HARDWARE_PRODUCT_DATASOURCE_PATH),
+    TARIFF_PLAN(Const.TARIFF_PLAN_TAG, TariffPlanModel.class, Const.TARIFF_PLAN_DATASOURCE_PATH);
 
     private final String assetTypeTag;
     private final Class<?> modelClass;

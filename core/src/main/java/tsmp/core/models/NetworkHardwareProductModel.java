@@ -1,37 +1,48 @@
 package tsmp.core.models;
 
+import com.poiji.annotation.ExcelCellName;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 public class NetworkHardwareProductModel {
 
     @ValueMapValue
+    @ExcelCellName("Product ID")
     private String id;
 
     @ValueMapValue
+    @ExcelCellName("Product Name")
     private String name;
 
     @ValueMapValue
+    @ExcelCellName("Category")
     private String category;
 
     @ValueMapValue
+    @ExcelCellName("Description")
     private String description;
 
     @ValueMapValue
+    @ExcelCellName("Price")
     private String price;
 
     @ValueMapValue
+    @ExcelCellName("Speed/Capacity")
     private String speed;
 
     @ValueMapValue
+    @ExcelCellName("Ports")
     private String ports;
 
     @ValueMapValue
+    @ExcelCellName("Network Type")
     private String networkType;
 
     @ValueMapValue
+    @ExcelCellName("Features")
     private String features;
 
     @ValueMapValue
+    @ExcelCellName("Availability")
     private String availability;
 
 
