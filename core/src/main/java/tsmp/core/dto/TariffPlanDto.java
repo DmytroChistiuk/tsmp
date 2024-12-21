@@ -1,61 +1,44 @@
-package tsmp.core.models;
+package tsmp.core.dto;
 
 import com.poiji.annotation.ExcelCellName;
-import org.apache.sling.api.resource.Resource;
-import org.apache.sling.models.annotations.Model;
-import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
-@Model(adaptables = Resource.class)
-public class TariffPlanModel {
+public class TariffPlanDto {
 
-    @ValueMapValue
     @ExcelCellName("Product ID")
     private String id;
 
-    @ValueMapValue
     @ExcelCellName("Product Name")
     private String name;
 
-    @ValueMapValue
     @ExcelCellName("Category")
     private String category;
 
-    @ValueMapValue
     @ExcelCellName("Description")
     private String description;
 
-    @ValueMapValue
     @ExcelCellName("Price")
     private String connectionPrice;
 
-    @ValueMapValue
     @ExcelCellName("Monthly Cost")
     private String monthlyCost;
 
-    @ValueMapValue
     @ExcelCellName("Contract Duration")
     private String duration;
 
-    @ValueMapValue
     @ExcelCellName("Data Allowance")
     private String dataAllowance;
 
-    @ValueMapValue
     @ExcelCellName("Voice Allowance")
     private String voiceAllowance;
 
-    @ValueMapValue
     @ExcelCellName("Text Allowance")
     private String textAllowance;
 
-    @ValueMapValue
     @ExcelCellName("Network Coverage")
     private String networkCoverage;
 
-    @ValueMapValue
     @ExcelCellName("Availability")
     private String availability;
-
 
     public String getId() {
         return id;

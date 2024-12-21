@@ -1,0 +1,82 @@
+.tariff-comparator {
+  font-family: Arial, sans-serif;
+  margin: 20px auto;
+  text-align: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.tariff-comparator h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.tariff-plans {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.tariff-card {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tariff-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.tariff-card h2 {
+  font-size: 1.5rem;
+  margin: 0 0 10px;
+}
+
+.tariff-card .category {
+  font-size: 1rem;
+  color: #fce38a;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.tariff-card .description {
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.tariff-details {
+  text-align: left;
+}
+
+.tariff-details div {
+  margin: 10px 0;
+  font-size: 0.9rem;
+}
+
+.tariff-details span {
+  font-weight: bold;
+  color: #fce38a;
+}
+
+.tariff-details strong {
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .tariff-plans {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tariff-card {
+    width: 90%;
+  }
+}

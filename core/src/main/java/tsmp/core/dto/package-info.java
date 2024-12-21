@@ -14,6 +14,6 @@
  *  limitations under the License.
  */
 @Version("1.0")
-package tsmp.core.models;
+package tsmp.core.dto;
 
 import org.osgi.annotation.versioning.Version;

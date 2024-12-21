@@ -3,7 +3,7 @@
     <filter root="/conf/tsmp" mode="merge"/>
     <filter root="/conf/global/settings/dam/adminui-extension/metadataschema/default" mode="replace"/>
 
-    <filter root="/etc/reportData" mode="replace"/>
+    <filter root="/etc/reportData" mode="merge"/>
 
     <filter root="/content/tsmp" mode="merge"/>
     <filter root="/content/dam/tsmp" mode="merge">

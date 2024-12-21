@@ -1,14 +1,14 @@
 package tsmp.core.utils;
 
-import tsmp.core.models.NetworkHardwareProductModel;
-import tsmp.core.models.TariffPlanModel;
+import tsmp.core.dto.NetworkHardwareDto;
+import tsmp.core.dto.TariffPlanDto;
 
 import java.util.Arrays;
 import java.util.Optional;
 
 public enum AssetType {
-    NETWORK_HARDWARE(Const.HARDWARE_PRODUCT_TAG, NetworkHardwareProductModel.class, Const.HARDWARE_PRODUCT_DATASOURCE_PATH),
-    TARIFF_PLAN(Const.TARIFF_PLAN_TAG, TariffPlanModel.class, Const.TARIFF_PLAN_DATASOURCE_PATH);
+    NETWORK_HARDWARE(Const.HARDWARE_PRODUCT_TAG, NetworkHardwareDto.class, Const.HARDWARE_PRODUCT_DATASOURCE_PATH),
+    TARIFF_PLAN(Const.TARIFF_PLAN_TAG, TariffPlanDto.class, Const.TARIFF_PLAN_DATASOURCE_PATH);
 
     private final String assetTypeTag;
     private final Class<?> modelClass;

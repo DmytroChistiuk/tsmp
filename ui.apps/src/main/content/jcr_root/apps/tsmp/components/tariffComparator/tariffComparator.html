@@ -1,0 +1,74 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${clientlib.css @ categories=['tariff.comparator']}"/>
+
+<div class="tariff-comparator">
+    <sly data-sly-use.comparator="tsmp.core.model.TariffPlanComparatorModel"
+         data-sly-set.firstTariff="${comparator.firstTariff}"
+         data-sly-set.secondTariff="${comparator.secondTariff}"/>
+
+    <div class="tariff-plans">
+        <div class="tariff-card">
+            <h2>${firstTariff.name}</h2>
+            <p class="category">${firstTariff.category}</p>
+            <p class="description">${firstTariff.description}</p>
+            <div class="tariff-details">
+                <div class="tariff-row">
+                    <span>Price:</span> <strong>${firstTariff.connectionPrice}$</strong>
+                </div>
+                <div class="tariff-row">
+                    <span>Monthly Cost:</span> <strong>${firstTariff.monthlyCost}$</strong>
+                </div>
+                <div class="tariff-row">
+                    <span>Contract Duration:</span> <strong>${firstTariff.duration} months</strong>
+                </div>
+                <div class="tariff-row">
+                    <span>Data:</span> <strong>${firstTariff.dataAllowance}</strong>
+                </div>
+                <div class="tariff-row">
+                    <span>Voice:</span> <strong>${firstTariff.voiceAllowance}</strong>
+                </div>
+                <div class="tariff-row">
+                    <span>Text:</span> <strong>${firstTariff.textAllowance}</strong>
+                </div>
+                <div class="tariff-row">
+                    <span>Network:</span> <strong>${firstTariff.networkCoverage}</strong>
+                </div>
+                <div class="tariff-row">
+                    <span>Availability:</span> <strong>${firstTariff.availability}</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="tariff-card">
+            <h2>${secondTariff.name}</h2>
+            <p class="category">${secondTariff.category}</p>
+            <p class="description">${secondTariff.description}</p>
+            <div class="tariff-details">
+                <div class="tariff-row">
+                    <span>Price:</span> <strong>${secondTariff.connectionPrice}$</strong>
+                </div>
+                <div class="tariff-row">
+                    <span>Monthly Cost:</span> <strong>${secondTariff.monthlyCost}$</strong>
+                </div>
+                <div class="tariff-row">
+                    <span>Contract Duration:</span> <strong>${secondTariff.duration} months</strong>
+                </div>
+                <div class="tariff-row">
+                    <span>Data:</span> <strong>${secondTariff.dataAllowance}</strong>
+                </div>
+                <div class="tariff-row">
+                    <span>Voice:</span> <strong>${secondTariff.voiceAllowance}</strong>
+                </div>
+                <div class="tariff-row">
+                    <span>Text:</span> <strong>${secondTariff.textAllowance}</strong>
+                </div>
+                <div class="tariff-row">
+                    <span>Network:</span> <strong>${secondTariff.networkCoverage}</strong>
+                </div>
+                <div class="tariff-row">
+                    <span>Availability:</span> <strong>${secondTariff.availability}</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
