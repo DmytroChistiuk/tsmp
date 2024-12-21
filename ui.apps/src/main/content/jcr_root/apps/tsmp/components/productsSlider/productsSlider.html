@@ -1,0 +1,27 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${clientlib.css @ categories=['products.slider']}"/>
+
+<sly data-sly-use.slider="tsmp.core.model.ProductSliderModel">
+    <div class="product-slider">
+        <h1 class="slider-heading">${slider.sliderText}</h1>
+        <div class="slider-container">
+            <sly data-sly-list.product="${slider.productItems}">
+                <div class="slider-item">
+                    <div class="item-details">
+                        <h2>${product.name}</h2>
+                        <p class="category">${product.category}</p>
+                        <p class="description">${product.description}</p>
+                        <ul class="specs">
+                            <li><span>Price:</span> $${product.price}</li>
+                            <li><span>Speed/Capacity:</span> ${product.speed}</li>
+                            <li><span>Ports:</span> ${product.ports}</li>
+                            <li><span>Network Type:</span> ${product.networkType}</li>
+                            <li><span>Features:</span> ${product.features}</li>
+                            <li><span>Availability:</span> ${product.availability}</li>
+                        </ul>
+                    </div>
+                </div>
+            </sly>
+        </div>
+    </div>
+</sly>
