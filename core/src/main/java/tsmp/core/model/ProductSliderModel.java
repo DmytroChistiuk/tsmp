@@ -4,22 +4,20 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
-import org.apache.sling.models.annotations.injectorspecific.ResourcePath;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import tsmp.core.dto.NetworkHardwareDto;
-import tsmp.core.utils.Const;
-import tsmp.core.utils.JsonDataTransformer;
+import tsmp.core.service.OffersHolderService;
 
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class ProductSliderModel {
 
-    @Optional
-    @ResourcePath(path = Const.HARDWARE_PRODUCT_DATASOURCE_PATH)
-    private Resource hardwareProductsDatasource;
+    @Inject
+    private OffersHolderService offersHolderService;
 
     @Optional
     @ValueMapValue
@@ -33,11 +31,9 @@ public class ProductSliderModel {
 
     @PostConstruct
     protected void init() {
-        String jsonData = hardwareProductsDatasource.getValueMap().get(Const.JSON_DATA_PROPERTY, String.class);
+        List<NetworkHardwareDto> hardwareProducts = offersHolderService.getHardwareProducts();
 
-        List<NetworkHardwareDto> networkHardwares = JsonDataTransformer.json2Collection(jsonData, NetworkHardwareDto.class);
-
-        productItems = networkHardwares.stream()
+        productItems = hardwareProducts.stream()
                 .filter(product -> productIds.contains(product.getId()))
                 .collect(Collectors.toList());
     }

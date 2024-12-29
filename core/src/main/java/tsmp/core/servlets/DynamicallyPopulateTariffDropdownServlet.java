@@ -8,18 +8,15 @@ import com.day.crx.JcrConstants;
 import org.apache.commons.collections4.iterators.TransformIterator;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
-import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceMetadata;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
 import org.osgi.framework.Constants;
 import org.osgi.service.component.annotations.Component;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.osgi.service.component.annotations.Reference;
 import tsmp.core.dto.TariffPlanDto;
-import tsmp.core.utils.Const;
-import tsmp.core.utils.JsonDataTransformer;
+import tsmp.core.service.OffersHolderService;
 
 import javax.servlet.Servlet;
 import java.util.HashMap;
@@ -33,14 +30,17 @@ import java.util.List;
         })
 public class DynamicallyPopulateTariffDropdownServlet extends SlingSafeMethodsServlet {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(DynamicallyPopulateTariffDropdownServlet.class);
+    private static final String VALUE = "value";
+    private static final String TEXT = "text";
+
+    @Reference
+    private OffersHolderService offersHolderService;
 
     @Override
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) {
         ResourceResolver resourceResolver = request.getResourceResolver();
-        Resource tariffResource = resourceResolver.getResource(Const.TARIFF_PLAN_DATASOURCE_PATH);
-        String jsonData = tariffResource.getValueMap().get(Const.JSON_DATA_PROPERTY, String.class);
-        List<TariffPlanDto> tariffPlanDtos = JsonDataTransformer.json2Collection(jsonData, TariffPlanDto.class);
+        List<TariffPlanDto> tariffPlanDtos = offersHolderService.getTariffPlans();
+
         DataSource ds =
                 new SimpleDataSource(
                         new TransformIterator(
@@ -48,8 +48,8 @@ public class DynamicallyPopulateTariffDropdownServlet extends SlingSafeMethodsSe
                                 input -> {
                                     TariffPlanDto model = (TariffPlanDto) input;
                                     ValueMap vm = new ValueMapDecorator(new HashMap<>());
-                                    vm.put("value", model.getId());
-                                    vm.put("text", model.getName());
+                                    vm.put(VALUE, model.getId());
+                                    vm.put(TEXT, model.getName());
                                     return new ValueMapResource(
                                             resourceResolver, new ResourceMetadata(),
                                             JcrConstants.NT_UNSTRUCTURED, vm);

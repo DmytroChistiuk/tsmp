@@ -12,6 +12,7 @@ import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import tsmp.core.service.OffersHolderService;
 import tsmp.core.utils.*;
 
 import java.io.InputStream;
@@ -28,6 +29,9 @@ public class ParseXMLAssetProcess implements WorkflowProcess {
 
     @Reference
     private ResourceResolverFactory resourceResolverFactory;
+
+    @Reference
+    private OffersHolderService offersHolderService;
 
     @Override
     public void execute(WorkItem workItem, WorkflowSession workflowSession, MetaDataMap metaDataMap) throws WorkflowException {
@@ -59,6 +63,8 @@ public class ParseXMLAssetProcess implements WorkflowProcess {
 
                     List<?> entities = ExcelDataExporter.exportExcelData(inputStream, assetType.getModelClass());
                     saveEntities(entities, assetType.getRepositoryPath(), resourceResolver);
+
+                    offersHolderService.reinitOffer(assetType.getName(), entities);
                 }
             }
 
@@ -83,9 +89,7 @@ public class ParseXMLAssetProcess implements WorkflowProcess {
                 return;
             }
 
-            if (properties.containsKey(Const.JSON_DATA_PROPERTY)) {
-                properties.remove(Const.JSON_DATA_PROPERTY);
-            }
+            properties.remove(Const.JSON_DATA_PROPERTY);
 
             String jsonEntries = JsonDataTransformer.collection2Json(entities);
             properties.put(Const.JSON_DATA_PROPERTY, jsonEntries);

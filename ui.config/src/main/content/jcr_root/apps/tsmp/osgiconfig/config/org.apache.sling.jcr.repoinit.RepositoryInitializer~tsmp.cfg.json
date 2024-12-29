@@ -2,6 +2,9 @@
     "scripts": [
         "create path (sling:OrderedFolder) /content/dam/tsmp",
         "create path (nt:unstructured) /content/dam/tsmp/jcr:content",
-        "set properties on /content/dam/tsmp/jcr:content\n  set cq:conf{String} to /conf/tsmp\n  set jcr:title{String} to \"TSMP\"\nend"
+        "set properties on /content/dam/tsmp/jcr:content\n  set cq:conf{String} to /conf/tsmp\n  set jcr:title{String} to \"TSMP\"\nend",
+        "create service user tsmpSystemUser with path /home/users/system/tsmpSystemUser\n",
+        "set ACL for tsmpSystemUser\n",
+        "allow jcr:read,rep:write,crx:replicate on /content\n end"
     ]
 }
