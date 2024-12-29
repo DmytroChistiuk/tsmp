@@ -1,82 +1,91 @@
-.tariff-comparator {
-  font-family: Arial, sans-serif;
-  margin: 20px auto;
-  text-align: center;
-  padding: 20px;
-  background-color: #f9f9f9;
-}
-
-.tariff-comparator h1 {
-  font-size: 2rem;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-.tariff-plans {
+.offer-component {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: row;
+  align-items: center;
   gap: 20px;
-}
-
-.tariff-card {
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
-  color: white;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 300px;
   padding: 20px;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.tariff-card:hover {
+.offer-component:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-.tariff-card h2 {
-  font-size: 1.5rem;
+.offer-image img {
+  max-width: 150px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.offer-details {
+  flex: 1;
+  text-align: left;
+}
+
+.offer-name {
+  font-size: 1.8rem;
   margin: 0 0 10px;
 }
 
-.tariff-card .category {
+.offer-category {
   font-size: 1rem;
-  color: #fce38a;
   font-weight: bold;
+  color: #ffe47a;
   margin-bottom: 10px;
 }
 
-.tariff-card .description {
-  font-size: 0.9rem;
+.offer-description {
+  font-size: 1rem;
   font-style: italic;
   margin-bottom: 20px;
 }
 
-.tariff-details {
-  text-align: left;
+.offer-availability {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
 }
 
-.tariff-details div {
-  margin: 10px 0;
-  font-size: 0.9rem;
-}
-
-.tariff-details span {
+.availability-label {
   font-weight: bold;
-  color: #fce38a;
+  margin-right: 5px;
 }
 
-.tariff-details strong {
-  font-size: 1rem;
+.availability-status {
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.availability-status.available {
+  background-color: #4caf50;
+  color: white;
+}
+
+.availability-status.limited {
+  background-color: #f44336;
+  color: white;
+}
+
+.product-teaser {
+  font-size: 0.9rem;
+  color: #ffe47a;
 }
 
 @media screen and (max-width: 768px) {
-  .tariff-plans {
+  .offer-component {
     flex-direction: column;
-    align-items: center;
+    text-align: center;
   }
 
-  .tariff-card {
-    width: 90%;
+  .offer-image img {
+    max-width: 80%;
+    margin-bottom: 15px;
   }
 }

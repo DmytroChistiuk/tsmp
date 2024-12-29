@@ -2,3 +2,30 @@
      data-sly-call="${clientlib.css @ categories=['offer']}"/>
 
 
+<sly data-sly-use.model="tsmp.core.model.OfferModel"
+     data-sly-set.offer="${model.offer}">
+    <div class="offer-component">
+        <div class="offer-image">
+            <img src="${model.fileReference}" alt="${offer.name}" />
+        </div>
+        <div class="offer-details">
+            <h2 class="offer-name">${offer.name}</h2>
+            <p class="offer-category">${offer.category}</p>
+            <p class="offer-description">${offer.description}</p>
+
+            <div class="offer-availability">
+                <span class="availability-label">Availability:</span>
+
+                <sly data-sly-test="${offer.availability == 'Available'}">
+                    <span class="availability-status available">Available</span>
+                </sly>
+
+                <sly data-sly-test="${offer.availability != 'Available'}">
+                    <span class="availability-status limited">Limited</span>
+                </sly>
+            </div>
+
+            <p class="product-teaser">${model.productTeaser}</p>
+        </div>
+    </div>
+</sly>

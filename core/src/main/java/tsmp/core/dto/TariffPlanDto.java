@@ -2,7 +2,7 @@ package tsmp.core.dto;
 
 import com.poiji.annotation.ExcelCellName;
 
-public class TariffPlanDto {
+public class TariffPlanDto extends Offer{
 
     @ExcelCellName("Product ID")
     private String id;
@@ -40,20 +40,29 @@ public class TariffPlanDto {
     @ExcelCellName("Availability")
     private String availability;
 
+    @Override
     public String getId() {
         return id;
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public String getCategory() {
         return category;
     }
 
+    @Override
     public String getDescription() {
         return description;
+    }
+
+    @Override
+    public String getAvailability() {
+        return availability;
     }
 
     public String getConnectionPrice() {
@@ -82,9 +91,5 @@ public class TariffPlanDto {
 
     public String getNetworkCoverage() {
         return networkCoverage;
-    }
-
-    public String getAvailability() {
-        return availability;
     }
 }
